@@ -3,7 +3,7 @@ on: push
 
 jobs: 
     build: 
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         steps:
         - name: nodejs build 
           run: sudo apt install cowsay -y 
@@ -15,7 +15,7 @@ jobs:
           run: sleep 30 
     job_2: 
         needs: build
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         steps: 
         - name: sleep 
           run: sleep 10 
