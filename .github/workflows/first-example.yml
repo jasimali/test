@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu:latest
         steps:
         - name: nodejs build 
-          run: sudo apt-get install cowsay -y 
+          run: sudo apt install cowsay -y 
 
         - name: execute cmd 
           run: cowsay -f dragon "run for cover" >> dragon.txt
