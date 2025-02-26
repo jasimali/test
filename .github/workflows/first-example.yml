@@ -1,13 +1,29 @@
-name: my first workflow 
-
+name: first workflow 
 on: push 
 
 jobs: 
-    first_job: 
-        runs-on: ubuntu-latest
-        steps: 
-        - name: welcome message 
-          run: echo "my first workflow"
+    build: 
+        runs-on: ubuntu:latest
+        steps:
+        - name: nodejs build 
+          run: sudo apt-get install cowsay -y 
 
-        - name: list files
-          run: ls 
+        - name: execute cmd 
+          run: cowsay -f dragon "run for cover" >> dragon.txt
+
+        - name: sleep for 30 
+          run: sleep 30 
+    job_2: 
+        needs: build
+        runs-on: ubuntu:latest
+        steps: 
+        - name: sleep 
+          run: sleep 10 
+        - name: test file exist 
+          run: grep -i "dragon" dragon.txt
+    job_3: 
+        needs: job_2
+        runs-on: ubuntu:latest
+        steps:
+        - name: reading 
+          run: cat dragon.txt
