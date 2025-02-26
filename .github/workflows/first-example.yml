@@ -23,7 +23,7 @@ jobs:
           run: grep -i "dragon" dragon.txt
     job_3: 
         needs: job_2
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         steps:
         - name: reading 
           run: cat dragon.txt
